@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+</head>
+
+<body>
+    <h1>게시판</h1>
+
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>AUTHOR</th>
+            <th>DATE</th>
+            <th>EDIT</th>
+        </tr>
+        {% for article in articles %}
+        <tr>
+            <td>{{ article._id }}</td>
+            <td><a href="/{{ article._id }}/detail_mongo">{{ article.title }}</a></td>
+            <td>{{ article.author }}</td>
+            <td>{{ article.create_at }}</td>
+            <td><a href="/{{ article._id }}/edit"><button>편집</button></a>
+                <a href="/{{ article._id }}/delete" onclick="return confirm('정말 삭제하시겠습니까?')"><button>삭제</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+</head>
+
+<body>
+    <h1>게시판</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>AUTHOR</th>
+            <th>DATE</th>
+            <th>EDIT</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{ i[0] }}</td>
+            <td><a href="/detail/{{ i[0] }}">{{ i[1] }}</a></td>
+            <td>{{ i[3] }}</td>
+            <td>{{ i[4] }}</td>
+            <td><a href="/edit/{{i[0]}}"><button>편집</button></a>
+                <a href="/delete/{{i[0]}}"><button>삭제</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>
